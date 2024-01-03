@@ -1,0 +1,27 @@
+
+
+
+<form action="/update" method="post">
+
+    <input type="hidden" name="id" value="<%= product.id %>">
+
+
+    <h3>Update the Book Details</h3>
+    <div class="new">
+        <p>Name of Book</p>
+        <input type="text" name="name" placeholder="Enter Book Name" value=" <%= product.name %>">
+
+        <p>Description of Book</p>
+        <input type="text" name='desc' placeholder="Description For Book" value=" <%= product.desc %>">
+
+        <p>Price of Book</p>
+        <input type="number" name="price" placeholder="Enter Book Price" value="<%= product.price %>">
+
+        <p>Enter Img URL of book</p>
+        <input type="url" name="img" placeholder="Enter Book Img URL" value="<%= product.img %>">
+
+        <br /><br /><br />
+        <button type="submit">Update Book</button>
+
+    </div>
+</form>
