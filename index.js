@@ -8,10 +8,10 @@ import path from "path";
 // import error file for new products
 import validateReq from "./src/Middleware/Error.js";
 
+
 const server = express();
 
 server.use(express.static("public"));
-
 server.use(express.static('src/views'))
 
 const productController = new ProductController();
@@ -38,6 +38,6 @@ server.post("/delete/:id", productController.deleteProduct);
 server.post("/", validateReq, productController.addNewPro);
 
 
-server.listen(3004);
+server.listen(3005);
 
-console.log("Server listen on port 3004");
+console.log("Server listen on port 3005");
