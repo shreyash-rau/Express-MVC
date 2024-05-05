@@ -6,12 +6,9 @@ class ProductController{
     
     getProduct(req, res){
         // console.log(path.resolve())
-
         let products = ProductModel.get();
-        
         // console.log(products)
-
-        res.render("pro", {products:products})
+        res.render("pro", {products:products, userEmail:req.session.userEmail})
 
         // res.sendFile(
         // path.join(path.resolve(), "src", "Views", "pro.html"),
@@ -20,16 +17,21 @@ class ProductController{
 
     // new-products formation controller
     getAddFrom(req, res){
-        return res.render("new_pro")
+        res.render("new_pro",{
+            userEmail:req.session.userEmail
+        })
     }
 
     // adding new product from new_pro.ejs
     addNewPro(req, res){
+        // console.log(req)
+        const {name, desc, price} = req.body;
+        const img = "image/" + req.file.filename;
         // to adding the new pro with pro file
-        console.log(req.body)
-        ProductModel.addP(req.body)
+        // console.log(req.body)
+        ProductModel.addP(name, desc, price, img)
         var products = ProductModel.get();
-        return res.render("pro", {products:products})
+        res.render("pro", {products, userEmail:req.session.userEmail})
     }
 
     // to update the product 
@@ -37,7 +39,9 @@ class ProductController{
         const id = req.params.id;
         const proFind = ProductModel.getProId(id);
         if(proFind){
-            res.render("update",{product:proFind, errorMassage:null })
+            res.render("update",{product:proFind, 
+                errorMassage:null, 
+                userEmail:req.session.userEmail })
         }else{
             res.status(401).send("Product Not Found")
         }

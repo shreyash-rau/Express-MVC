@@ -24,13 +24,10 @@ class ProductModel{
 
 
     // form new_pro.ejs file to add info in pro.ejs
-    static addP(proObj){
+    static addP(name, desc, price, img){
         let newPro = new ProductModel(
             products.length + 1,
-            proObj.name,
-            proObj.desc,
-            proObj.price,
-            proObj.img
+            name, desc, price, img
         );
         products.push(newPro);
     }

@@ -1,9 +1,13 @@
 /* ///////////////////////pro.ejs////////////////////////// */
+
+
 body {
     align-items: center;
     text-align: center;
     background-color: rgb(18, 41, 44);
     color: white;
+    padding: 50px;
+    border-radius: 20px;
 }
 
 table,
@@ -20,6 +24,7 @@ td {
     display: flex;
     background-color: aquamarine;
     color: black;
+    border-radius: 20px;
 }
 
 .navbar {

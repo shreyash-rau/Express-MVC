@@ -32,7 +32,7 @@ const validateReq = async (req, res, next) =>{
     const rules = [
         body("name").notEmpty().withMessage("Enter Valid Name"),
         body("price").isFloat({gt:0}).withMessage("Enter a Valid price"),
-        body("img").isURL().withMessage("Enter Valid URL")
+        // body("img").isURL().withMessage("Enter Valid URL")
     ]
     await Promise.all(rules.map((rule)=>rule.run(req)))
 

@@ -14,12 +14,28 @@
 <body>
     <nav class="nav">
         <h2 class="navbar"> Navbar</h2>
+
         <div class="product">
             <a href="/">Product</a>
         </div>
+
         <div class="Nproduct">
             <a href="/new">New-Product</a>
         </div>
+
+        <% if(locals.userEmail) {%>
+            <div class="product">
+                <a href="/logout">LogOut</a>
+            </div>
+        <%} else {%>
+        <div class="product">
+            <a href="/register1">Register</a>
+        </div>
+        <div class="product">
+            <a href="/login">Login</a>
+        </div>
+      <%  }%>
+      
     </nav>
     <h2>A Basic HTML Table</h2>
 
